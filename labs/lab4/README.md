@@ -7,7 +7,7 @@ In the this labs we'll continue to explore Pivotal Cloudfoundry application oper
 
 One of the most important enablers of visibility into application behavior is logging.
 Effective management of logs has historically been very difficult.
-[Pivotal Cloud Foundry's loggregator](https://docs.pivotal.io/pivotalcf/2-1/loggregator/architecture.html)components simplify log management by assuming responsibility for it.
+[Pivotal Cloud Foundry's loggregator](https://docs.pivotal.io/pivotalcf/2-1/loggregator/architecture.html) components simplify log management by assuming responsibility for it.
 Application developers need only log all messages to either `STDOUT` or `STDERR`, and the platform will capture these messages.
 
 ### For Developers
@@ -27,7 +27,7 @@ Here are two interesting subsets of one output from that command:
 2015-02-13T15:04:33.51-0600 [Diego/12]     OUT Starting app instance (index 2) with guid 7a428901-1691-4cce-b7f6-62d186c5cb55 <3>
 2015-02-13T15:04:33.71-0600 [Diego/4]      OUT Starting app instance (index 3) with guid 7a428901-1691-4cce-b7f6-62d186c5cb55
 ~~~~
-1. An "Apache-style"" access log event from the (Go)Router
+1. An "Apache-style"" access log event from the Router
 2. An API log event that corresponds to an event as shown in `cf events`
 3. A Diego log event indicating the start of an application instance on that Diego cell.
 
@@ -41,6 +41,7 @@ Here are two interesting subsets of one output from that command:
 ~~~~
 
 As you can see, Pivotal Cloud Foundry's log aggregation components capture both application logs and CF component logs relevant to your application.
+
 These events are properly interleaved based on time, giving you an accurate picture of events as they transpired across the system.
 
 To get a running "tail" of the application logs rather than a dump, simply type:
@@ -53,7 +54,7 @@ You can try various things like refreshing the browser and triggering stop/start
 
 Pivotal Cloud Foundry's actively monitors the health of our application processes and will restart them should they crash.
 
-If you don't have one already running, start a log tail for `workshop`.
+If you don't have one already running, start a log tail for _workshop_
 
 `$ cf logs workshop`
 
@@ -61,7 +62,7 @@ If you do not have more than one application instance running, execute the scale
 
 ![Alt](lab.png)
 
-. After clicking the kill switch a couple of interesting things should happen.
+After clicking the kill switch a couple of interesting things should happen.
 First, you'll see an error code returned in the browser, as the request you submitted never returns a response:
 
 ![Alt](lab1.png)
@@ -81,7 +82,6 @@ Also, if you're paying attention to the log tail, you'll see some interesting lo
 1. Just before issuing the `System.exit(1)` call, the application logs that the kill switch was clicked.
 2. The (Go)Router logs the 502 error.
 3. The API logs that an application instance exited due to a crash.
-====
 
 Wait a few seconds...  By this time you should have noticed some additional interesting events in the logs:
 ~~~~
@@ -108,7 +108,7 @@ It also reduces the number of causes that must be considered when problems arise
 All application configuration changes are recorded as _events_.
 These events can be viewed via the Cloud Foundry API, and viewing is facilitated via the CLI.
 
-Take a look at the events that have transpired so far for our deployment of `workshop`:
+Take a look at the events that have transpired so far for our deployment of _workshop_:
 
 ###
 ~~~~
