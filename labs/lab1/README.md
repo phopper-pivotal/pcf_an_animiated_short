@@ -32,10 +32,10 @@ Push the application!
 
 You should see output similar to the following listing. Take a look at the listing callouts for a play-by-play of what's happening:
 ~~~~
-Using manifest file /Users/phopper/workspace/PCF-Dev-Workshop-Shelter/labs/cf-spring-mvc-boot/manifest.yml <1>
+Using manifest file /Users/phopper/workspace/pcf_an_animated_short/labs/cf-spring-mvc-boot/manifest.yml <1>
 
 Creating app workshop in org TELCO / space hopper as phopper@pivotal.io...
-OK <2>
+OK **<2>**
 
 Creating route workshop-philologic-catchpolery.vert.fe.gopivotal.com...
 OK <3>
@@ -44,12 +44,12 @@ Binding workshop-philologic-catchpolery.vert.fe.gopivotal.com to workshop...
 OK <4>
 
 Uploading workshop... <5>
-Uploading app files from: /Users/phopper/workspace/NBCU-PCF-Workshop-101/cf-spring-mvc-boot/target/cf-spring-mvc-boot-0.0.1-SNAPSHOT.jar
+Uploading app files from: /Users/phopper/workspace/pcf_an_animated_short/labs/cf-spring-mvc-boot/target/cf-spring-mvc-boot-0.0.1-SNAPSHOT.jar
 Uploading 10.6M, 153 files
 Done uploading               
 OK
 
-Starting app workshop in org TELCO / space hopper as phopper@pivotal.io... <6>
+Starting app workshop in org NORTH / space hopper as phopper@pivotal.io... <6>
 -----> Downloaded app package (27M)
 -----> Java Buildpack Version: v3.1.1 (offline) | https://github.com/cloudfoundry/java-buildpack#7a538fb
 -----> Downloading Open Jdk JRE 1.8.0_51 from https://download.run.pivotal.io/openjdk/trusty/x86_64/openjdk-1.8.0_51.tar.gz (found in cache)
