@@ -42,11 +42,11 @@ and you'll see the same (or a similar if on Pivotal Web Services) service/plan/d
 ## Creating and Binding to a Service Instance
 
 Let's begin by creating a MySQL service instance.
-From the Apps Manager UI service marketplace, select _MySQL for Pivotal Cloud Foundry v2_, select the db-small plan, and provide an instance name.
+From the Apps Manager UI service marketplace, select _MySQL for Pivotal Cloud Foundry v2_, select the db-small plan, and provide an instance name
 
-In the drop-down list next to _Add To Space_ select the space where you deployed the application.
+In the drop-down list next to _Add To Space_ select the space where you deployed the application
 
-In the drop-down list next to _Bind To App_ select your workshop application.
+In the drop-down list next to _Bind To App_ select your workshop application
 
 Select _Create_ to create the service instance
 
@@ -62,32 +62,89 @@ A _restage_ is generally recommended because Cloud Foundry buildpacks also have 
 
 `$ cf restage cf-spring-mvc-boot`
 
-Once the application is running again, revisit or refresh the browser tab where you have the _Wokshop_ application loaded.  You'll notice now we have information that could be used to connect to a DB.
-In fact, our data is now being retrieved from that MySQL database!
+Once the application is running again, let's verify that JDBC connection information to the MySQL instance we created.
+
+`$ cf env cf-spring-mvc-boot`
+
 ~~~~
-Bound Services:
+System-Provided:
 {
-   "p-mysql":[
-      {
-         "name":"adam-db",
-         "label":"p-mysql",
-         "tags":[
-            "mysql",
-            "relational"
-         ],
-         "plan":"100mb-dev",
-         "credentials":{
-            "hostname":"10.68.105.55",
-            "port":3306,
-            "name":"cf_226845a3_1982_44ac_92b9_4b149af56bbc",
-            "username":"n67hpBOnKlsPUjKn",
-            "password":"hUa4WSrq2hPtBsuk",
-            "uri":"mysql://n67hpBOnKlsPUjKn:hUa4WSrq2hPtBsuk@10.68.105.55:3306/cf_226845a3_1982_44ac_92b9_4b149af56bbc?reconnect=true",
-            "jdbcUrl":"jdbc:mysql://10.68.105.55:3306/cf_226845a3_1982_44ac_92b9_4b149af56bbc?user=n67hpBOnKlsPUjKn&password=hUa4WSrq2hPtBsuk"
-         }
-      }
-   ]
+ "VCAP_SERVICES": {
+  "app-autoscaler": [
+   {
+    "binding_name": null,
+    "credentials": {},
+    "instance_name": "autoscale-dev",
+    "label": "app-autoscaler",
+    "name": "autoscale-dev",
+    "plan": "standard",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "cfapi",
+     "runtime",
+     "autoscaling"
+    ],
+    "volume_mounts": []
+   }
+  ],
+  "p.mysql": [
+   {
+    "binding_name": null,
+    "credentials": {
+     "hostname": "10.193.164.232",
+     "jdbcUrl": "jdbc:mysql://10.193.164.232:3306/service_instance_db?user=9f8a3662c30545a7897784529e244216\u0026password=0ghqzb26gjnz1k6x",
+     "name": "service_instance_db",
+     "password": "0ghqzb26gjnz1k6x",
+     "port": 3306,
+     "uri": "mysql://9f8a3662c30545a7897784529e244216:0ghqzb26gjnz1k6x@10.193.164.232:3306/service_instance_db?reconnect=true",
+     "username": "9f8a3662c30545a7897784529e244216"
+    },
+    "instance_name": "mydb",
+    "label": "p.mysql",
+    "name": "mydb",
+    "plan": "db-small",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "mysql"
+    ],
+    "volume_mounts": []
+   }
+  ]
+ }
 }
+
+{
+ "VCAP_APPLICATION": {
+  "application_id": "3f2818e4-5d4c-492b-8c65-2eeb5d41efbd",
+  "application_name": "cf-scale-boot",
+  "application_uris": [
+   "cf-scale-boot.cfapps.haas-100.pez.pivotal.io"
+  ],
+  "application_version": "ca11dfc3-e3c7-4c2e-86f0-dd7daa6618d5",
+  "cf_api": "https://api.run.haas-100.pez.pivotal.io",
+  "limits": {
+   "disk": 1024,
+   "fds": 16384,
+   "mem": 1024
+  },
+  "name": "cf-scale-boot",
+  "space_id": "47ff077e-2171-4f13-aae7-f91fa5254a33",
+  "space_name": "dev",
+  "uris": [
+   "cf-scale-boot.cfapps.haas-100.pez.pivotal.io"
+  ],
+  "users": null,
+  "version": "ca11dfc3-e3c7-4c2e-86f0-dd7daa6618d5"
+ }
+}
+
+No user-defined env variables have been set
+
+No running env variables have been set
+
+No staging env variables have been set
 ~~~~
 
 You may also verify your service was provisioned in the Apps Manager UI by clicking on your application and selecting the _Services_ tab.
