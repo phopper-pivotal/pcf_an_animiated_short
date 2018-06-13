@@ -2,45 +2,32 @@
 
 ## Target
 
-. If you haven't already, complete the prequisites and environment setup: link:../labaccess.adoc[Get Environment Access]
+If you haven't already, complete the prequisites and environment setup: [Get Environment Access](../labaccess.adoc)
 
 ## Download
-. Download the code, binaries and slides: https://github.com/phopper-pivotal/PCF-Dev-Workshop-Shelter
+Download the code, binaries and slides:
+
+`git clone https://github.com/phopper-pivotal/pcf_an_animiated_short.git`
 
 ## Target
-. Set the API target for the CLI: (set appropriate end point for your environment)
-+
-----
-$ cf api https://api.sys.cfapp.org --skip-ssl-validation
-----
+Set the API target for the CLI: (set appropriate end point for your environment)
+`$ cf api https://api.sys.cfapp.org --skip-ssl-validation`
 
-. Login to Pivotal Cloudfoundry:
-+
-----
-$ cf login
-----
-+
+Login to Pivotal Cloudfoundry:
+`$ cf login`
+
 Follow the prompts
-
 
 ## Push It!
 
-. Change directory to the _labs/cf-spring-mvc-boot_ sample application:
-+
-----
-$ cd $BOOTCAMP_HOME/cf-spring-mvc-boot
-----
+Change directory to the _labs/cf-spring-mvc-boot_ sample application:
+`$ cd $BOOTCAMP_HOME/cf-spring-mvc-boot`
 
-. Push the application!
-+
-----
-$ cf push <some-unique-name>
-----
-+
+Push the application!
+`$ cf push <some-unique-name>`
+
 You should see output similar to the following listing. Take a look at the listing callouts for a play-by-play of what's happening:
-+
-====
-----
+~~~~
 Using manifest file /Users/phopper/workspace/PCF-Dev-Workshop-Shelter/labs/cf-spring-mvc-boot/manifest.yml <1>
 
 Creating app workshop in org TELCO / space hopper as phopper@pivotal.io...
@@ -92,52 +79,38 @@ buildpack: java-buildpack=v3.1.1-offline-https://github.com/cloudfoundry/java-bu
 
      state     since                    cpu    memory           disk           details   
 #0   running   2015-09-24 02:16:11 PM   2.4%   392.6M of 512M   151.6M of 1G 
-----
-<1> The CLI is using a manifest to provide necessary configuration details such as application name, memory to be allocated, and path to the application artifact.
+~~~~
+1. The CLI is using a manifest to provide necessary configuration details such as application name, memory to be allocated, and path to the application artifact.
 Take a look at `manifest.yml` to see how.
-<2> In most cases, the CLI indicates each Cloud Foundry API call as it happens.
+2. In most cases, the CLI indicates each Cloud Foundry API call as it happens.
 In this case, the CLI has created an application record for _Workshop_ in your assigned space.
-<3> All HTTP/HTTPS requests to applications will flow through Cloud Foundry's front-end router called http://docs.cloudfoundry.org/concepts/architecture/router.html[(Go)Router].
+3. All HTTP/HTTPS requests to applications will flow through Cloud Foundry's front-end router called http://docs.cloudfoundry.org/concepts/architecture/router.html[(Go)Router].
 Here the CLI is creating a route with random word tokens inserted (again, see `manifest.yml` for a hint!) to prevent route collisions across the default `devcloudwest.inbcu.com` domain.
-<4> Now the CLI is _binding_ the created route to the application.
+4. Now the CLI is _binding_ the created route to the application.
 Routes can actually be bound to multiple applications to support techniques such as http://www.mattstine.com/2013/07/10/blue-green-deployments-on-cloudfoundry[blue-green deployments].
-<5> The CLI finally uploads the application bits to Pivotal Cloudfoundry. Notice that it's uploading _75 files_! This is because Cloud Foundry actually explodes a ZIP artifact before uploading it for caching purposes.
-<6> Now we begin the staging process. The https://github.com/cloudfoundry/java-buildpack[Java Buildpack] is responsible for assembling the runtime components necessary to run the application.
-<7> Here we see the version of the JRE that has been chosen and installed.
-<8> The complete package of your application and all of its necessary runtime components is called a _droplet_.
+5. The CLI finally uploads the application bits to Pivotal Cloudfoundry. Notice that it's uploading _75 files_! This is because Cloud Foundry actually explodes a ZIP artifact before uploading it for caching purposes.
+6. Now we begin the staging process. The https://github.com/cloudfoundry/java-buildpack[Java Buildpack] is responsible for assembling the runtime components necessary to run the application.
+7. Here we see the version of the JRE that has been chosen and installed.
+8. The complete package of your application and all of its necessary runtime components is called a _droplet_.
 Here the droplet is being uploaded to Pivotal Cloudfoundry's internal blobstore so that it can be easily copied to one or more _http://docs.cloudfoundry.org/concepts/architecture/execution-agent.html[Droplet Execution Agents (DEA's)]_ for execution.
-<9> The CLI tells you exactly what command and argument set was used to start your application.
-<10> Finally the CLI reports the current status of your application's health.
-====
+9. The CLI tells you exactly what command and argument set was used to start your application.
+10. Finally the CLI reports the current status of your application's health.
 
-. Visit the application in your browser by hitting the route that was generated by the CLI:
-+
-image::lab-java.png[]
+Visit the application in your browser by hitting the route that was generated by the CLI:
+![Alt](lab-java.png)
 
 ## Interact with App from CF CLI
 
-. Get information about the currently deployed application using CLI apps command:
-+
-----
-$ cf apps
-----
-+
+Get information about the currently deployed application using CLI apps command:
+`$ cf apps`
+
 Note the application name for next steps
 
-. Get information about running instances, memory, CPU, and other statistics using CLI instances command
-+
-----
-$ cf app <<app_name>>
-----
+Get information about running instances, memory, CPU, and other statistics using CLI instances command
+`$ cf app <<app_name>>`
 
-. Stop the deployed application using the CLI
-+
-----
-$ cf stop <<app_name>>
-----
+Stop the deployed application using the CLI
+`$ cf stop <<app_name>>`
 
-. Delete the deployed application using the CLI
-+
-----
-$ cf delete <<app_name>>
-----
+Delete the deployed application using the CLI
+`$ cf delete <<app_name>>`
