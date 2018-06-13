@@ -1,0 +1,200 @@
+# Demo 1
+## clone repository, target environment and push spring-music
+
+cd apps/spring-music
+
+gradlew clean assemble
+
+### let's look at the structure of what was built
+
+tree build/libs
+
+cf api --skip-ssl-validation https://api.run.haas-100.pez.pivotal.io
+
+cf login
+
+### now since I'm admin user let's setup a user, create an org, create some spaces
+### and assign some role based access
+
+cf create-user workshop workshop123
+
+cf create-org cerner-cts
+
+cf create-space dev -o cerner-cts
+
+cf create-space devcert -o cerner-cts
+
+cf create-space prod -o cerner-cts
+
+cf set-org-role workshop cerner-cts OrgManager
+
+cf set-space-role workshop cerner-cts dev SpaceManager
+
+cf set-space-role workshop cerner-cts devcert SpaceManager
+
+cf set-space-role workshop cerner-cts prod SpaceManager
+
+### ok we've set up dev, devcert and prod environments or spaces. we need to target one
+
+### so now where do we go? set the org
+
+cf orgs
+
+cf target -o cerner-cts
+
+### so now we can push our app, wait is this application to be pushed to dev environment?
+
+cf spaces
+
+cf target -o cerner-cts -s dev
+
+### hey paul are really sure your going to push this app to cerner-cts dev env?
+## let's verify
+
+cf target
+
+cf push
+
+# Services Demo
+
+cf marketplace
+
+cf create-service p.mysql db-small spring-music-db
+
+### we will need to wait while the platform provisions a shared instance of mysql
+cf services, this will take a couple of minutes
+
+### ask the audience how long it takes them to provision a mysql HA cluster?
+
+cf bind-service spring-music spring-music-db
+
+cf env spring-music
+
+cf restage spring-music
+
+## now let's clean up
+
+cf unbind-service spring-music spring-music-db
+
+cf delete-service spring-music-db -f
+
+cf delete spring-music -f
+
+
+## Application scaling & Autoscaler Demo
+
+cd ../cf-scale-boot
+
+cf push
+
+cf scale -i 5 cf-scale-boot
+
+watch -n 1 cf app cf-scale-boot
+
+### visit the webpage to see round robin through the instances
+
+cf scale -i 1 cf-scale-boot
+
+watch cf app cf-scale-boot
+
+### visit the webpage to see only one instance
+
+cf open cf-scale-boot
+
+### go to AppsManager
+
+#### select the org
+#### select the space
+#### select the cf-scale-boot application
+
+### enable app auto-scaler
+###  set start: 2 and end: 5
+###  set CPU > 5
+###  set CPU < 5
+### restage application
+cf restage cf-scale-boot
+
+watch -n 1 cf app cf-scale-boot
+
+### since we set min instances to 2 it will automatically start a 2nd instance
+
+#### hit cf-scale-boot app endpoint /load and watch the behaviour
+open https://cf-scale-boot.cfapps.haas-100.pez.pivotal.io/load
+open https://cf-scale-boot.cfapps.haas-100.pez.pivotal.io/load
+open https://cf-scale-boot.cfapps.haas-100.pez.pivotal.io/load
+
+
+#### disable auto-scale
+
+### let's check the scaling events
+cf events cf-scale-boot
+
+# monitoring applications
+#### open watch
+watch -n 1 cf app cf-scale-boot
+
+#### open logs
+cf logs cf-scale-boot
+
+## visit cf-scale-boot application and select kill switch button
+
+## reload application, notice the 404 error
+
+cf events cf-scale-boot
+
+## visit the cf-scale-boot webpage again
+
+## ok we've seen logs what about recent logs
+
+cf logs cf-scale-boot --recent
+
+vs.
+
+cf logs cf-scale-boot
+
+## let's add new events
+
+cf stop cf-scale-boot
+
+cf events cf-scale-boot
+
+cf start cf-scale-boot
+
+cf events cf-scale-boot
+
+## how do you expose application metrics to devlopers today?
+
+## now let's walk over to application metrics
+
+# blue / green deployments
+
+cf apps
+
+cf routes
+
+## let's modify the color of the button on cf-scale-boot
+### uncomment warning line
+### comment danger line
+
+### rename application name and host in manifest.yml to _v2
+
+cf push
+
+### once done
+
+cf routes
+
+### visit URL of this application
+
+cf map-route cf-scale-boot-v2 --hostname cf-scale-boot
+
+
+cf routes
+
+
+## now hit endpoint for cf-scale-boot and watch in round robin through the two versions
+
+cf unmap-route cf-scale-boot cfapps.io cf-scale-boot
+
+
+## now hit the endpoint for cf-scale-boot and notice the old version is gone
