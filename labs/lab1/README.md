@@ -2,7 +2,7 @@
 
 ## Target
 
-If you haven't already, complete the prequisites and environment setup: [Get Environment Access](../labaccess.adoc)
+If you haven't already, complete the prequisites and environment setup: [Get Environment Access](../../labaccess.adoc)
 
 ## Download
 Download the code, binaries and slides:
