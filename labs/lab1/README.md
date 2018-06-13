@@ -35,7 +35,7 @@ You should see output similar to the following listing. Take a look at the listi
 Using manifest file /Users/phopper/workspace/pcf_an_animated_short/labs/cf-spring-mvc-boot/manifest.yml <1>
 
 Creating app workshop in org TELCO / space hopper as phopper@pivotal.io...
-OK **<2>**
+OK <2>
 
 Creating route workshop-philologic-catchpolery.vert.fe.gopivotal.com...
 OK <3>
