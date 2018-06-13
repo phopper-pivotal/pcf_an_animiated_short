@@ -1,9 +1,9 @@
 # Lab 2 - Binding to Cloudfoundry Services
 
-The _Workshop_ application was designed to illustrate the ease with which data services can be bound to and utilized by applications running on Cloud Foundry.
+The _Workshop_ application was designed to illustrate the ease with which data services can be bound to and utilized by applications running on Pivotal Cloud Foundry.
 In this lab, we'll be binding the application to a MySQL databases.
 
-Cloud Foundry services are managed through two primary types of operations:
+Pivotal Cloud Foundry services are managed through two primary types of operations:
 
 **Create/Delete:** These operations create or delete instances of a service.
 For a database this could mean creating/deleting a schema in an existing multitenant cluster or creating/deleting a dedicated database cluster.
@@ -29,21 +29,26 @@ The first is available on any instance of Cloud Foundry: the CLI. Just type:
 
 and you'll get a list of services, their available plans, and descriptions. On Pivotal Cloudfoundry, the "free" tier of plans is normally the first one listed.
 
-The second way is specific to Pivotal Cloudfoundry's Apps Manager UI. If you haven't already, login to it by visiting Apps Mgr
+The second way is specific to Pivotal Cloud Foundry's Apps Manager UI. If you haven't already, login to it by visiting [Apps Mgr](apps.)
 
-Click on the "Marketplace" link:
+Click on the "Marketplace" link in the left navbar:
 
 ![Alt](lab1.png)
 
-and you'll see the same (or a similar if on PWS) service/plan/description listing in the browser:
+and you'll see the same (or a similar if on Pivotal Web Services) service/plan/description listing in the browser:
 
 ![Alt](lab2.png)
 
 ## Creating and Binding to a Service Instance
 
 Let's begin by creating a MySQL service instance.
-From the Apps Manager UI service marketplace, select _MySQL for Pivotal Cloudfoundry_, select the free plan, and provide an instance name.
-In the drop-down list next to _Bind to App_ select your workshop application.
+From the Apps Manager UI service marketplace, select _MySQL for Pivotal Cloud Foundry v2_, select the db-small plan, and provide an instance name.
+
+In the drop-down list next to _Add To Space_ select the space where you deployed the application.
+
+In the drop-down list next to _Bind To App_ select your workshop application.
+
+Select _Create_ to create the service instance
 
 ![Alt](lab3.png)
 
