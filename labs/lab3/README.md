@@ -9,7 +9,7 @@ In the next two labs we'll explore Pivotal Cloudfoundry operations.
 Now let's increase the number of running application instances to 3.  For this lab you can use the Java, Ruby, or Node.js sample app.  In each of the commands below replace _workshop_ with the name of your deployed application:
 
 ~~~~
-$ cf scale -i 3 workshop`
+$ cf scale -i 3 workshop
 Scaling app workshop in org North / space hopper as phopper@pivotal.io...
 OK
 ~~~~
