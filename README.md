@@ -27,7 +27,7 @@ Time | Session
 11:30 AM | _[How to make a super hero in 10-easy steps](./decks/)_
 12:15 AM | _[The Clone Wars +working lunch](./decks/)_
 12:45 PM | _Break_
-1:00 PM | _[WALL*E, EVE & BURN*E - Health, Events and Logging](.decks/)_
+1:00 PM | _[WALL-E, EVE & BURN-E - Health, Events and Logging](.decks/)_
 1:50 PM | _[UP - Application Patching](./decks/)_
 2:30 PM | _[Labs](./labs/README.md)_
 4:07 PM | _Q&A, Retro & Wrapup_
