@@ -146,12 +146,12 @@ Note the application name for next steps
 
 Get information about running instances, memory, CPU, and other statistics using CLI instances command
 
-`$ cf app <<app_name>>`
+`$ cf app workshop`
 
 Stop the deployed application using the CLI
 
-`$ cf stop <<app_name>>`
+`$ cf stop workshop`
 
 Delete the deployed application using the CLI
 
-`$ cf delete <<app_name>>`
+`$ cf delete workshop`
