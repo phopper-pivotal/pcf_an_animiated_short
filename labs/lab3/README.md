@@ -135,7 +135,7 @@ buildpack:         client-certificate-mapper=1.6.0_RELEASE container-security-pr
 #0   running   2018-06-14T00:29:05Z   0.2%   336M of 1G   154.3M of 1G
 ~~~~
 
-and you'll see the list of routes in the section that says _urls_.
+and you'll see the list of routes in the section that says _routes_.
 
 The second way is via the Apps Manager UI.  Click on the _Workshop_ application to view application details.  Select the _Routes_ tab to view a list of mapped routes:
 
@@ -149,7 +149,7 @@ Navigate to the new URL in your browser window.  You should see that same applic
 
 ![Alt](lab4.png)
 
-We can just as easily remove a route by clicking on _Unmap_ on the route you wish to remove.
+We can just as easily remove a route by clicking on _x_ to the right of the route you wish to remove.
 
 ![Alt](lab5.png)
 
