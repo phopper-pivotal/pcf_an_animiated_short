@@ -163,6 +163,6 @@ This is how blue-green deployments are accomplished.
 
 ## Accessing Container Contents
 
-SSH into your app container via 'cf ssh APP_NAME' 
+SSH into your app container via `cf ssh APP_NAME`
 
 Reference: https://docs.pivotal.io/pivotalcf/2-1/customizing/
