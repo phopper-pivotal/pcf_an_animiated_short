@@ -2,12 +2,12 @@
 
 ## Apps Manager UI
 1. Navigate in a web browser to https://apps.sys.cfapp.org
-2. Your login is your email address and password is "w0rksh0p"
+2. Your login is your email address and password is your ADFS password
 3. **IMPORTANT: We will be following the lab instructions on this page, not the getting started lab on run.pivotal.io**
 
 ## Target the Environment
 
-If you haven't already, download the latest release of the Cloud Foundry CLI from https://github.com/cloudfoundry/cli/releases for your operating system and install it.
+If you haven't already, download the latest release of the [Cloud Foundry CLI](https://github.com/cloudfoundry/cli?mkt_tok=eyJpIjoiTXpoaE5UbGpNR0l3WldReCIsInQiOiIremNMNzlod0k5ekRGZDBOb0lXNTFYWGhhQU9LRnRKMW4rbnJIYWhCYjVUWk40dmVCUndKbFFRY1Q2SzF3T0VBd0FSQ0hHbGlsTlF4OVFQckNzYk9sZFpmcStxeE1VcmVOSis1VGJEcXZKUT0ifQ%3D%3D#installers-and-compressed-binaries) for your operating system and install it.
 
 Set the API target for the CLI: (set appropriate end point to this lab environment "https://apps.sys.cfapp.org")
 
