@@ -23,11 +23,11 @@ Time | Session
 9:00 AM  | _Let's build and deploy an application_
 9:45 AM  | _[Partly Cloudy](./decks/)_
 10:15 AM | _Break_
-10:30 AM  | _[Inside Out - An inside out look of PCF](./decks/)_
+10:30 AM  | _[Inside Out => PCF Architecture & Operations](./decks/)_
 11:30 AM | _[How to make a super hero in 10-easy steps](./decks/)_
 12:15 AM | _[The Clone Wars +working lunch](./decks/)_
 12:45 PM | _Break_
-1:00 PM | _[WALL-E, EVE & BURN-E - Health, Events and Logging](.decks/)_
+1:00 PM | _[WALL-E, EVE & BURN-E => Health, Events and Logging](.decks/)_
 1:50 PM | _[UP - Application Patching](./decks/)_
 2:30 PM | _[Labs](./labs/README.md)_
 4:07 PM | _Q&A, Retro & Wrapup_
