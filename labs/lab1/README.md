@@ -122,7 +122,7 @@ Take a look at `manifest.yml` to see how.
 2. In most cases, the CLI indicates each Cloud Foundry API call as it happens.
 In this case, the CLI has created an application record for _Workshop_ in your assigned space.
 3. All HTTP/HTTPS requests to applications will flow through Cloud Foundry's front-end router called [Router](https://docs.pivotal.io/pivotalcf/2-1/concepts/architecture/#router).
-Here the CLI is creating a route with random word tokens inserted (again, see `manifest.yml` for a hint!) to prevent route collisions across the default `devcloudwest.inbcu.com` domain.
+Here the CLI is creating a route with random word tokens inserted (again, see `manifest.yml` for a hint!) to prevent route collisions across the default `cfapps.haas-100.pez.pivotal.io` domain.
 4. Now the CLI is _binding_ the created route to the application.
 Routes can actually be bound to multiple applications to support techniques such as [Blue / Green Deploys](https://docs.pivotal.io/pivotalcf/2-1/devguide/deploy-apps/blue-green.html).
 5. The CLI finally uploads the application bits to Pivotal Cloudfoundry. Notice that it's uploading _75 files_! This is because Cloud Foundry actually explodes a ZIP artifact before uploading it for caching purposes.
