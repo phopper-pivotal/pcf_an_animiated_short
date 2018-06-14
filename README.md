@@ -1,5 +1,4 @@
-# Pivotal Cloud Foundry 
-## An 101 for Application Developers and Operators
+# Pivotal Cloud Foundry for Application Developers and Operators
 During this workshop you will gain a deeper understanding of Pivotal Cloud Foundry, its components and architecture, how to deploy an application, how to create a service and bind to an application and day 1 and day 2 operations of an application. 
 
 Whether your apps are staying on-premises or moving to a public cloud, these principles will help you build more scalable, resilient and adaptable systems that drive your competitive advantage.
@@ -8,7 +7,7 @@ You’ll leave this workshop with a better understanding of what you need for Da
 
 ## Events of Interest
 - Spring Developer Workshop sponsered by Pivotal and Perficient to be held at Overland Park Marriott on June 19th. [Registration page](https://connect.pivotal.io/PCF-Spring-Workshop-Kansas-City.html)
-- Stay informed for the [2018 SpringOne Platform by Pivotal](https://springoneplatform.io/) , use discount code: S1P200_phopper  for a $200 discount, to be held in Sept. 24-27 in Washington, D.C.
+- Stay informed for the [2018 SpringOne Platform by Pivotal](https://springoneplatform.io/) , use discount code: **S1P200_phopper**  for a $200 discount, to be held in Sept. 24-27 in Washington, D.C.
 
 ## Outcomes of Workshop
 * Comfort with cf command line tools and deploying to pcf
