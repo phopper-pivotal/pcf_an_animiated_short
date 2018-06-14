@@ -1,9 +1,9 @@
 # PCF Environment Access
 
 ## Apps Manager UI
-. Navigate in a web browser to https://apps.sys.cfapp.org
-. Your login is your email address and password is "w0rksh0p"
-. **IMPORTANT: We will be following the lab instructions on this page, not the getting started lab on run.pivotal.io**
+1. Navigate in a web browser to https://apps.sys.cfapp.org
+2. Your login is your email address and password is "w0rksh0p"
+3. **IMPORTANT: We will be following the lab instructions on this page, not the getting started lab on run.pivotal.io**
 
 ## Target the Environment
 
