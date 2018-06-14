@@ -110,6 +110,6 @@ You may also verify your service was provisioned using the CLI:
 
 `$ cf services`
 
-or `$ cf service my-db` to get application specific information
+or `$ cf service my-db` to get service instance specific information
 
 You should now see the service created in step 1 listed and your application listed as a bound app.
